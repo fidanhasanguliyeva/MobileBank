@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryBase</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryBase</item>
+        <item name="colorOnPrimary">@color/colorPrimaryBase</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimaryBase</item>
+        <item name="colorSecondaryVariant">@color/colorPrimaryBase</item>
+        <item name="colorOnSecondary">@color/colorPrimaryBase</item>
+<!--        <item name="backgroundColor">@color/colorOtherPrimary</item>-->
+<!--        <item name="android:statusBarColor">@color/colorOtherPrimary</item>-->
+
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+<!--        <item name="homeAsUpIndicator">@drawable/ic_back</item>-->
+<!--        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>-->
+    </style>
+</resources>
