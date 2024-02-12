@@ -3,4 +3,6 @@
     <color name="colorPrimaryBase">#003C85</color>
     <color name="colorPrimaryDark">#011E42</color>
     <color name="colorPrimaryLight">#006CEE</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

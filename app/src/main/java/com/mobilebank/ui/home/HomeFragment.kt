@@ -9,6 +9,7 @@ import com.mobilebank.ui.base.BaseFragment
 
 class HomeFragment :
     BaseFragment<FragmentHomeBinding, HomeUiState, HomeViewModel>(HomeViewModel::class) {
+
     override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 

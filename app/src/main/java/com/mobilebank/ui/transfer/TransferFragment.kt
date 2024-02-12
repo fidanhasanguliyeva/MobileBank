@@ -9,6 +9,7 @@ import com.mobilebank.ui.base.BaseFragment
 
 class TransferFragment :
     BaseFragment<FragmentTransferBinding, TransferUiState, TransferViewModel>(TransferViewModel::class) {
+
     override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentTransferBinding
         get() = FragmentTransferBinding::inflate
 

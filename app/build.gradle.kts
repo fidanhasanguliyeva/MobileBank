@@ -7,7 +7,6 @@ plugins {
 android {
     namespace = "com.mobilebank"
     compileSdk = 33
-
     defaultConfig {
         applicationId = "com.mobilebank"
         minSdk = 24

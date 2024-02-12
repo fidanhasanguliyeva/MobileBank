@@ -13,8 +13,73 @@
 <!--        <item name="android:statusBarColor">@color/colorOtherPrimary</item>-->
 
         <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:fontFamily">@font/arial_regular</item>
         <item name="android:windowLightStatusBar">true</item>
 <!--        <item name="homeAsUpIndicator">@drawable/ic_back</item>-->
 <!--        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>-->
+    </style>
+
+    <style name="BoldBlack_18">
+        <item name="android:fontFamily">@font/arial_bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="MediumBlack_18">
+        <item name="android:fontFamily">@font/arial_medium</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="MediumWhite_18">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/arial_medium</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+    
+    <style name="regularBlack_18">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/arial_regular</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+    
+    <style name="boldWhite_16">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/arial_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="MediumPrimary_16">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/arial_medium</item>
+        <item name="android:textColor">@color/colorPrimaryBase</item>
+    </style>
+
+    <style name="boldBlack_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/arial_bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="MediumBlack_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/arial_medium</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="MediumPrimary_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/arial_medium</item>
+        <item name="android:textColor">@color/colorPrimaryBase</item>
+    </style>
+
+    <style name="MediumWhite_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/arial_medium</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="regularBlack_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/arial_regular</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 </resources>

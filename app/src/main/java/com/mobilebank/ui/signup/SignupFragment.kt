@@ -1,24 +1,15 @@
 package com.mobilebank.ui.signup
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.mobilebank.R
+import com.mobilebank.databinding.FragmentSignupBinding
+import com.mobilebank.ui.base.BaseFragment
 
-class SignupFragment : Fragment() {
+class SignupFragment :
+    BaseFragment<FragmentSignupBinding, SignupUiState, SignupViewModel>(SignupViewModel::class) {
+
+    override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentSignupBinding
+        get() = FragmentSignupBinding::inflate
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signup, container, false)
-    }
-
-    companion object {
-
-    }
 }
