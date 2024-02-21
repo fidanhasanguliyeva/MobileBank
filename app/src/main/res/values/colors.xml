@@ -3,6 +3,19 @@
     <color name="colorPrimaryBase">#003C85</color>
     <color name="colorPrimaryDark">#011E42</color>
     <color name="colorPrimaryLight">#006CEE</color>
+    <color name="colorPaleBlue">#add8e6</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorOffWhiteLighter">#fdfdfd</color>
+    <color name="colorOffWhite">#f8f8f8</color>
+    <color name="colorOffWhiteDarker">#dcdcdc</color>
+    <color name="colorBackgroundPrimary">#F4F6FA</color>
+
+    <color name="colorUtility600">#13171A</color>
+    <color name="colorUtility500">#46525A</color>
+    <color name="colorUtility400">#6D7A84</color>
+    <color name="colorUtility300">#9BA5B5</color>
+    <color name="colorUtility200">#CDD4E0</color>
+    <color name="colorUtility100">#FFFFFF</color>
+    <color name="colorOverlay">#78ffffff</color>
 </resources>
