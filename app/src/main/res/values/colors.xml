@@ -8,7 +8,7 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorOffWhiteLighter">#fdfdfd</color>
     <color name="colorOffWhite">#f8f8f8</color>
-    <color name="colorOffWhiteDarker">#dcdcdc</color>
+    <color name="colorOffWhiteDarker">#F1F1F1</color>
     <color name="colorBackgroundPrimary">#F4F6FA</color>
 
     <color name="colorUtility600">#13171A</color>

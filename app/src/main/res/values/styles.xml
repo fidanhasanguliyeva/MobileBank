@@ -110,19 +110,18 @@
     </style>
 
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="boxBackgroundColor">@color/colorWhite</item>
-        <item name="background">@drawable/bg_round_corner_primary</item>
-        <item name="hintTextColor">@color/colorUtility500</item>
+        <item name="boxBackgroundColor">@color/colorOffWhiteDarker</item>
         <item name="android:textColor">@color/colorUtility500</item>
         <item name="android:textColorHint">@color/colorUtility500</item>
+        <item name="hintTextColor">@color/colorPrimaryBase</item>
         <item name="endIconTint">@color/colorPrimaryBase</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
         <item name="boxCornerRadiusTopStart">12dp</item>
         <item name="boxCornerRadiusTopEnd">12dp</item>
         <item name="boxCornerRadiusBottomStart">12dp</item>
         <item name="boxCornerRadiusBottomEnd">12dp</item>
-        <item name="boxStrokeWidth">1dp</item>
         <item name="boxStrokeColor">@color/colorPrimaryBase</item>
-        <item name="boxStrokeWidthFocused">1dp</item>
     </style>
 
 </resources>
