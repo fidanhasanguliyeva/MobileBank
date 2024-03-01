@@ -111,8 +111,8 @@
 
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxBackgroundColor">@color/colorOffWhiteDarker</item>
-        <item name="android:textColor">@color/colorUtility500</item>
-        <item name="android:textColorHint">@color/colorUtility500</item>
+        <item name="android:textColor">@color/colorUtility600</item>
+        <item name="android:textColorHint">@color/colorUtility600</item>
         <item name="hintTextColor">@color/colorPrimaryBase</item>
         <item name="endIconTint">@color/colorPrimaryBase</item>
         <item name="boxStrokeWidth">0dp</item>

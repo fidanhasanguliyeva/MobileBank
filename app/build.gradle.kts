@@ -21,8 +21,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -66,5 +65,11 @@ dependencies {
     implementation("androidx.hilt:hilt-work:1.0.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.work:work-runtime:2.7.0-alpha05")
+
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    //Tab indicator
+    implementation("com.tbuonomo:dotsindicator:4.3")
+
 
 }
