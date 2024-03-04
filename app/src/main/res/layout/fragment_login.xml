@@ -35,6 +35,8 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="40dp"
         android:hint="Phone"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/volume_max"
         app:hintTextAppearance="@style/InputTextLabel16"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
         app:startIconDrawable="@drawable/phone">
@@ -42,8 +44,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextPhoneTXT"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:minHeight="30dp" />
+            android:layout_height="64dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,6 +54,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/volume_max"
         android:layout_marginTop="16dp"
         android:hint="Password"
         app:hintTextAppearance="@style/InputTextLabel16"
@@ -61,7 +64,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="64dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
