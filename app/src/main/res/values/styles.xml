@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimaryBase</item>
@@ -9,15 +10,15 @@
         <item name="colorSecondary">@color/colorPrimaryBase</item>
         <item name="colorSecondaryVariant">@color/colorPrimaryBase</item>
         <item name="colorOnSecondary">@color/colorPrimaryBase</item>
-<!--        <item name="backgroundColor">@color/colorOtherPrimary</item>-->
-<!--        <item name="android:statusBarColor">@color/colorOtherPrimary</item>-->
+        <!--        <item name="backgroundColor">@color/colorOtherPrimary</item>-->
+        <!--        <item name="android:statusBarColor">@color/colorOtherPrimary</item>-->
         <item name="android:statusBarColor">@color/colorWhite</item>
 
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:fontFamily">@font/arial_regular</item>
         <item name="android:windowLightStatusBar">true</item>
-<!--        <item name="homeAsUpIndicator">@drawable/ic_back</item>-->
-<!--        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>-->
+        <!--        <item name="homeAsUpIndicator">@drawable/ic_back</item>-->
+        <!--        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>-->
     </style>
 
     <style name="BoldBlack_18">
@@ -35,13 +36,13 @@
         <item name="android:fontFamily">@font/arial_medium</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
-    
+
     <style name="regularBlack_18">
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/arial_regular</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
-    
+
     <style name="boldWhite_16">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/arial_bold</item>
@@ -122,6 +123,22 @@
         <item name="boxCornerRadiusBottomStart">12dp</item>
         <item name="boxCornerRadiusBottomEnd">12dp</item>
         <item name="boxStrokeColor">@color/colorPrimaryBase</item>
+    </style>
+
+    <style name="InputTextLabel20" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="InputTextLabel18" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="InputTextLabel16" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="InputTextLabel14" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

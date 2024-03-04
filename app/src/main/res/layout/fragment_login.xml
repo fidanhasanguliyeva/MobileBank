@@ -6,31 +6,44 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/magnifier"
+        layout="@layout/layout_magnifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/ibit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/magnifier" />
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/TextInputLayout"
         android:id="@+id/editTextPhone"
+        style="@style/TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="40dp"
         android:hint="Phone"
+        app:hintTextAppearance="@style/InputTextLabel16"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
         app:startIconDrawable="@drawable/phone">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPhoneTXT"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="64dp"
+            android:minHeight="30dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -42,6 +55,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:hint="Password"
+        app:hintTextAppearance="@style/InputTextLabel16"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
         app:startIconDrawable="@drawable/lock_01">
 
@@ -52,12 +66,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinue"
         style="@style/PrimaryLargeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
-        android:layout_marginBottom="8dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Continue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextPassword" />
