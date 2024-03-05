@@ -5,16 +5,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/magnifier"
+        layout="@layout/layout_magnifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/ibit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/magnifier" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,12 +40,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name Surname"
+            app:endIconDrawable="@drawable/volume_max"
+            app:endIconMode="custom"
             app:layout_constraintTop_toBottomOf="@+id/imgLogo"
             app:startIconDrawable="@drawable/user_01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="64dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,12 +59,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Phone"
+            app:endIconDrawable="@drawable/volume_max"
+            app:endIconMode="custom"
             app:layout_constraintTop_toBottomOf="@+id/imgLogo"
             app:startIconDrawable="@drawable/phone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="64dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,17 +77,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Password"
+            app:endIconDrawable="@drawable/volume_max"
+            app:endIconMode="custom"
             app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
             app:startIconDrawable="@drawable/lock_01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="64dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinue"
         style="@style/PrimaryLargeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
