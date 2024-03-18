@@ -24,11 +24,15 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
+
+        debug {
+        }
     }
 
     buildFeatures {
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
 
     compileOptions {
@@ -70,6 +74,15 @@ dependencies {
 
     //Tab indicator
     implementation("com.tbuonomo:dotsindicator:4.3")
-
+    //Retrofit
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.7.2")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+    implementation("commons-codec:commons-codec:1.11")
+    implementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
+    testImplementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
 
 }
