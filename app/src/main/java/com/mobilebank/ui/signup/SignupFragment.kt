@@ -53,6 +53,7 @@ class SignupFragment :
 
                 }
                 btnContinue.setOnClickListener {
+                    findNavController().navigate(R.id.homeFragment)
                 }
             }
         }
@@ -132,6 +133,9 @@ class SignupFragment :
             }
         }
         with(binding) {
+            editTextName.layoutParams.height = height
+            editTextName.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
+            editTextName.setHintTextAppearance(textAppearance)
             editTextPhone.layoutParams.height = height
             editTextPhone.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
             editTextPhone.setHintTextAppearance(textAppearance)

@@ -3,7 +3,7 @@ package com.mobilebank.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mobilebank.data.CardsViewPagerItem
+import com.mobilebank.data.model.CardsViewPagerItem
 import com.mobilebank.databinding.ListItemCardBinding
 
 class CardsViewPagerAdapter(var items: List<CardsViewPagerItem>) :

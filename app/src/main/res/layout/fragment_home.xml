@@ -2,25 +2,29 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fillViewport="true"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ui.home.HomeFragment">
 
-        <androidx.viewpager2.widget.ViewPager2
+        <com.github.islamkhsh.CardSliderViewPager
             android:id="@+id/vpOnboarding"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:overScrollMode="never"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:auto_slide_time="3"
+            app:cardSlider_otherPagesWidth="24dp"
+            app:cardSlider_pageMargin="12dp"
+            app:cardSlider_smallScaleFactor="0.9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
             android:id="@+id/diViewpager"
@@ -49,37 +53,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/diViewpager">
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                style="@style/PrimaryLargeButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/colorPrimaryLight"
-                android:src="@drawable/plus"
-                android:tint="@color/colorOffWhite" />
+            <include
+                android:id="@+id/topUp"
+                layout="@layout/layout_home_card_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <Space
                 android:layout_width="16dp"
                 android:layout_height="match_parent" />
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                style="@style/PrimaryLargeButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/colorPrimaryLight"
-                android:src="@drawable/bank_note_02"
-                android:tint="@color/colorOffWhite" />
+            <include
+                android:id="@+id/pay"
+                layout="@layout/layout_home_card_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <Space
                 android:layout_width="16dp"
                 android:layout_height="match_parent" />
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                style="@style/PrimaryLargeButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/colorPrimaryLight"
-                android:src="@drawable/switch_vertical_02"
-                android:tint="@color/colorOffWhite" />
+            <include
+                android:id="@+id/transfer"
+                layout="@layout/layout_home_card_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatTextView

@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+
 }
 
 android {
@@ -84,5 +86,8 @@ dependencies {
     implementation("commons-codec:commons-codec:1.11")
     implementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
     testImplementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
+
+
+    implementation ("com.github.IslamKhSh:CardSlider:1.0.1")
 
 }
