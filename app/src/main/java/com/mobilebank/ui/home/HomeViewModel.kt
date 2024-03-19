@@ -36,4 +36,25 @@ class HomeViewModel @Inject constructor(val cardRepository: CardRepository) :
             }
         }
     }
+
+    fun getTransactions() {
+        viewModelScope.launch(Dispatchers.IO) {
+            setState { copy(isLoading = true) }
+            when (val response = cardRepository.getTransactions("4127624395082590")) {
+                is ResultWrapper.Success -> {
+                    val data = response.value.body()
+                    setState {
+                        copy(
+                            isLoading = false,
+                            listOfCards = mapCardResponseToUiModel(data)
+                        )
+                    }
+                }
+
+                is ResultWrapper.GenericError -> {
+                    setState { copy(isLoading = false) }
+                }
+            }
+        }
+    }
 }

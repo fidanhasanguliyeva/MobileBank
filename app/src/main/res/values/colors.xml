@@ -18,4 +18,15 @@
     <color name="colorUtility200">#CDD4E0</color>
     <color name="colorUtility100">#FFFFFF</color>
     <color name="colorOverlay">#78ffffff</color>
+
+    <color name="white_opacity_10">#1AFFFFFF</color>
+    <color name="white_opacity_20">#33FFFFFF</color>
+    <color name="white_opacity_30">#48FFFFFF</color>
+    <color name="white_opacity_50">#80FFFFFF</color>
+    <color name="black_opacity_30">#33000000</color>
+    <color name="black_opacity_10">#1A000000</color>
+    <color name="black_opacity_40">#66000000</color>
+    <color name="black_opacity_50">#80000000</color>
+    <color name="black_opacity_60">#96000000</color>
+    <color name="black_opacity_80">#CC515151</color>
 </resources>

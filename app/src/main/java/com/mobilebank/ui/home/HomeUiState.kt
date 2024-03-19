@@ -2,6 +2,7 @@ package com.mobilebank.ui.home
 
 import com.mobilebank.data.model.CardUiModel
 import com.mobilebank.data.model.response.CardResponse
+import com.mobilebank.data.model.response.TransactionsResponse
 import com.onsual.base.UiState
 
 data class HomeUiState(
@@ -9,6 +10,16 @@ data class HomeUiState(
 ) : UiState {
 
     fun mapCardResponseToUiModel(response: CardResponse?): List<CardUiModel> {
+        return response?.cards?.map {
+            CardUiModel(
+                cardNumber = it?.maskedCardNumber ?: "",
+                amount = (it?.availableBalance ?: "") + " " + it?.currency,
+                backgroundImage = it?.mediumImageUrl ?: ""
+            )
+        } ?: listOf()
+    }
+
+    fun mapTransactionResponseToUiModel(response: TransactionsResponse?): List<CardUiModel> {
         return response?.cards?.map {
             CardUiModel(
                 cardNumber = it?.maskedCardNumber ?: "",

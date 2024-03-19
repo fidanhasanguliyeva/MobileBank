@@ -50,7 +50,6 @@ class NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl("https://mobile-bank.p.rapidapi.com")
-
         .client(okHttpClient)
         .build()
 

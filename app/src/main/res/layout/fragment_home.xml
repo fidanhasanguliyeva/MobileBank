@@ -11,19 +11,25 @@
         android:layout_height="wrap_content"
         tools:context=".ui.home.HomeFragment">
 
-        <com.github.islamkhsh.CardSliderViewPager
+        <include
+            android:id="@+id/homeHeader"
+            layout="@layout/list_item_home_header"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpOnboarding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            app:auto_slide_time="3"
-            app:cardSlider_otherPagesWidth="24dp"
-            app:cardSlider_pageMargin="12dp"
-            app:cardSlider_smallScaleFactor="0.9"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/homeHeader" />
 
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
@@ -35,7 +41,7 @@
             android:paddingVertical="8dp"
             app:dotsColor="@color/colorUtility200"
             app:dotsCornerRadius="8dp"
-            app:dotsSize="14dp"
+            app:dotsSize="12dp"
             app:dotsSpacing="4dp"
             app:dotsWidthFactor="1.0"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +53,7 @@
             android:id="@+id/llActionButtons"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
