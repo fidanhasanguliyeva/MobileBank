@@ -11,19 +11,38 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/zoomOutBtn"
-            android:layout_width="60dp"
+            android:id="@+id/btnHelp"
+            android:layout_width="wrap_content"
             android:textSize="18sp"
-            android:layout_height="60dp"
+
+            style="@style/PrimarySmallButton"
+            android:textColor="@color/colorWhite"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Help" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/zoomOutBtn"
+            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            style="@style/PrimarySmallButton"
+
+            android:textColor="@color/colorWhite"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:text="A-" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/zoomInBtn"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:textSize="18sp"
+            style="@style/PrimarySmallButton"
 
-            android:layout_height="60dp"
+            android:textColor="@color/colorWhite"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:layout_height="wrap_content"
             android:text="A+" />
     </LinearLayout>
 </layout>

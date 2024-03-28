@@ -18,28 +18,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageButton
+        <ImageView
             android:id="@+id/btnAction"
             style="@style/PrimaryLargeButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:backgroundTint="@color/colorPrimaryLight"
             android:src="@{icon}"
-            android:tint="@color/colorOffWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorOffWhite" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/regularBlack_16"
-            android:layout_width="match_parent"
+            style="@style/regularBlack_18"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:drawableEnd="@drawable/volume_max"
             android:gravity="center"
             android:drawablePadding="4dp"
             android:text="@{titleText}"
-            app:drawableTint="@color/colorPrimaryBase"
+            app:drawableTint="@color/colorPrimaryLight"
             app:layout_constraintEnd_toEndOf="@+id/btnAction"
             app:layout_constraintStart_toStartOf="@+id/btnAction"
             app:layout_constraintTop_toBottomOf="@+id/btnAction" />

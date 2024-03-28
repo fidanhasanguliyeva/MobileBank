@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.mobilebank.R
@@ -23,11 +26,17 @@ class HomeFragment :
     override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 
+
+    val adapter = TransactionsAdapter()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getCards()
-
+        viewModel.getTransactions()
         with(binding) {
+            rvTransactions.layoutManager = LinearLayoutManager(context)
+            rvTransactions.adapter = adapter
+
             var density = resources.displayMetrics.density;
             var pageMargin = 8 * density; // 8dp
 
@@ -56,7 +65,7 @@ class HomeFragment :
                     }
                 }
             }
-
+            homeHeader.magnifier.btnHelp.isVisible = false
             vpOnboarding.setPadding(viewPagerPadding.toInt(), 0, viewPagerPadding.toInt(), 0)
             topUp.titleText = "Top up"
             topUp.icon = AppCompatResources.getDrawable(requireContext(), R.drawable.plus)
@@ -65,6 +74,9 @@ class HomeFragment :
             transfer.titleText = "Transfer"
             transfer.icon =
                 AppCompatResources.getDrawable(requireContext(), R.drawable.switch_vertical_02)
+            transfer.root.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransferFragment())
+            }
         }
 
         viewModel.uiState.collectLatestWithLifecycle(viewLifecycleOwner) {
@@ -72,13 +84,11 @@ class HomeFragment :
             with(binding) {
                 vpOnboarding.adapter = CardsViewPagerAdapter(it.listOfCards)
                 diViewpager.attachTo(vpOnboarding)
+                adapter.addTransactions(it.listOfTransactions)
             }
 
         }
 
     }
 
-    fun setHeight() {
-
-    }
 }

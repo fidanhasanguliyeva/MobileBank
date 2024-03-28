@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 
 }
 
@@ -88,6 +89,7 @@ dependencies {
     testImplementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
 
 
-    implementation ("com.github.IslamKhSh:CardSlider:1.0.1")
+
+    implementation ("com.github.bumptech.glide:glide:4.13.2")
 
 }

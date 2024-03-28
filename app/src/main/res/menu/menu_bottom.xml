@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/home_02"
+        android:title="Home" />
+    <item
+        android:id="@+id/helpFragment"
+        android:icon="@drawable/message_dots_circle"
+        android:title="Help" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/dots_grid"
+        android:title="Profile" />
+
+</menu>

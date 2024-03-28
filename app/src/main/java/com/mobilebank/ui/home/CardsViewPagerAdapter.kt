@@ -8,6 +8,7 @@ import com.mobilebank.data.model.CardUiModel
 import com.mobilebank.data.model.CardsViewPagerItem
 import com.mobilebank.databinding.LayoutHomeCardItemBinding
 import com.mobilebank.utils.asDp
+import com.mobilebank.utils.load
 
 class CardsViewPagerAdapter(var items: List<CardUiModel>) :
     RecyclerView.Adapter<CardsViewPagerAdapter.CardsViewPagerViewHolder>() {
@@ -35,7 +36,9 @@ class CardsViewPagerAdapter(var items: List<CardUiModel>) :
                         }
                     }
                 }
+                binding.name.text = item.name
                 binding.amount.text = item.amount
+                binding.cardImage.load(item.backgroundImage)
                 binding.cardNumber.text = item.cardNumber.toString()
 //            binding.txtSubtitle.text = itemView.context.getString(item.subTitle)
             }

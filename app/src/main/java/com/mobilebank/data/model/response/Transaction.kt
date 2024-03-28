@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Transaction(
     @SerializedName("amount")
-    val amount: Int?,
+    val amount: Double?,
     @SerializedName("commissionFee")
     val commissionFee: Any?,
     @SerializedName("currency")
@@ -17,7 +17,7 @@ data class Transaction(
     @SerializedName("description_extra")
     val descriptionExtra: String?,
     @SerializedName("localAmount")
-    val localAmount: Int?,
+    val localAmount: Double?,
     @SerializedName("localCurrency")
     val localCurrency: Any?,
     @SerializedName("paymentSource")

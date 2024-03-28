@@ -1,7 +1,8 @@
 package com.mobilebank
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         navController.setGraph(navGraph, intent.extras)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-
+            binding.bottomNav.isVisible =
+                (destination.id == R.id.homeFragment || destination.id == R.id.signupFragment)
         }
     }
 

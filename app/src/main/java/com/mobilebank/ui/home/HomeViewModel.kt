@@ -46,7 +46,7 @@ class HomeViewModel @Inject constructor(val cardRepository: CardRepository) :
                     setState {
                         copy(
                             isLoading = false,
-                            listOfCards = mapCardResponseToUiModel(data)
+                            listOfTransactions = mapTransactionResponseToUiModel(data)
                         )
                     }
                 }
