@@ -11,7 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.mobilebank.R
 import com.mobilebank.databinding.FragmentLoginBinding
 import com.mobilebank.ui.base.BaseFragment
-import com.mobilebank.utils.asDp
+import com.mobilebank.utils.decreaseTextAppearance
+import com.mobilebank.utils.increaseTextAppearance
 import java.util.Locale
 
 
@@ -37,19 +38,23 @@ class LoginFragment :
 
         with(binding) {
             magnifier.zoomInBtn.setOnClickListener {
-                increaseTextSize(textAppearance)
+                val triple = increaseTextAppearance(textAppearance)
+                textAppearance = triple.first
+                updateStyle(triple)
             }
 
             magnifier.zoomOutBtn.setOnClickListener {
-                decreaseTextSize(textAppearance)
+                val triple = decreaseTextAppearance(textAppearance)
+                textAppearance = triple.first
+                updateStyle(triple)
             }
             editTextPhone.setEndIconOnClickListener {
-                textToSpeech?.speak("phone for user log in", TextToSpeech.QUEUE_FLUSH, null,"")
+                textToSpeech?.speak("phone for user log in", TextToSpeech.QUEUE_FLUSH, null, "")
 
             }
 
             editTextPassword.setEndIconOnClickListener {
-                textToSpeech?.speak("password for user login", TextToSpeech.QUEUE_FLUSH, null,"")
+                textToSpeech?.speak("password for user login", TextToSpeech.QUEUE_FLUSH, null, "")
 
             }
             btnContinue.setOnClickListener {
@@ -58,83 +63,15 @@ class LoginFragment :
         }
     }
 
-    fun increaseTextSize(style: Int) {
-        textAppearance = style
-        var height = 64.asDp
-        var textSize = 16f
-        when (textAppearance) {
-            R.style.InputTextLabel20 -> {
-                textAppearance = R.style.InputTextLabel20
-                height = 75.asDp
-                textSize = 20f
-            }
-
-            R.style.InputTextLabel16 -> {
-                textAppearance = R.style.InputTextLabel18
-                height = 70.asDp
-                textSize = 18f
-            }
-
-            R.style.InputTextLabel18 -> {
-                textAppearance = R.style.InputTextLabel20
-                height = 75.asDp
-                textSize = 20f
-            }
-
-            R.style.InputTextLabel14 -> {
-                textAppearance = R.style.InputTextLabel16
-                height = 64.asDp
-                textSize = 16f
-            }
-        }
+    fun updateStyle(triple: Triple<Int, Int, Float>) {
         with(binding) {
-            editTextPhone.layoutParams.height = height
-            editTextPhone.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
-            editTextPhone.setHintTextAppearance(textAppearance)
-            editTextPassword.layoutParams.height = height
-            editTextPassword.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
-            editTextPassword.setHintTextAppearance(textAppearance)
-            btnContinue.textSize = textSize
-        }
-    }
-
-    fun decreaseTextSize(style: Int) {
-        textAppearance = style
-        var height = 64.asDp
-        var textSize = 16f
-        when (textAppearance) {
-            R.style.InputTextLabel16 -> {
-                textAppearance = R.style.InputTextLabel14
-                textSize = 14f
-                height = 61.asDp
-            }
-
-            R.style.InputTextLabel18 -> {
-                textAppearance = R.style.InputTextLabel16
-                height = 64.asDp
-                textSize = 16f
-            }
-
-            R.style.InputTextLabel20 -> {
-                textAppearance = R.style.InputTextLabel18
-                height = 70.asDp
-                textSize = 18f
-            }
-
-            R.style.InputTextLabel14 -> {
-                textAppearance = R.style.InputTextLabel14
-                height = 61.asDp
-                textSize = 14f
-            }
-        }
-        with(binding) {
-            editTextPhone.layoutParams.height = height
-            editTextPhone.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
-            editTextPhone.setHintTextAppearance(textAppearance)
-            editTextPassword.layoutParams.height = height
-            editTextPassword.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
-            editTextPassword.setHintTextAppearance(textAppearance)
-            btnContinue.textSize = textSize
+            editTextPhone.layoutParams.height = triple.second
+            editTextPhone.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, triple.third)
+            editTextPhone.setHintTextAppearance(triple.first)
+            editTextPassword.layoutParams.height = triple.second
+            editTextPassword.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, triple.third)
+            editTextPassword.setHintTextAppearance(triple.first)
+            btnContinue.textSize = triple.third
         }
     }
 

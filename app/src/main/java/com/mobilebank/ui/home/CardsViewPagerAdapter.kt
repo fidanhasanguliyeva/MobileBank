@@ -1,16 +1,22 @@
 package com.mobilebank.ui.home
 
+import android.content.Context
+import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilebank.data.model.CardUiModel
 import com.mobilebank.data.model.CardsViewPagerItem
 import com.mobilebank.databinding.LayoutHomeCardItemBinding
 import com.mobilebank.utils.asDp
+import com.mobilebank.utils.decreaseTextSize
+import com.mobilebank.utils.increaseTextSize
 import com.mobilebank.utils.load
 
-class CardsViewPagerAdapter(var items: List<CardUiModel>) :
+class CardsViewPagerAdapter(var items: List<CardUiModel>, var context: Context) :
     RecyclerView.Adapter<CardsViewPagerAdapter.CardsViewPagerViewHolder>() {
 
 
@@ -39,10 +45,12 @@ class CardsViewPagerAdapter(var items: List<CardUiModel>) :
                 binding.name.text = item.name
                 binding.amount.text = item.amount
                 binding.cardImage.load(item.backgroundImage)
-                binding.cardNumber.text = item.cardNumber.toString()
+                binding.cardNumber.text = item.cardNumber
+                binding.expireDate.text = item.expiryDate
 //            binding.txtSubtitle.text = itemView.context.getString(item.subTitle)
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardsViewPagerViewHolder {
@@ -61,5 +69,37 @@ class CardsViewPagerAdapter(var items: List<CardUiModel>) :
     override fun getItemCount(): Int {
         return items.size
     }
+
+//    fun updateIncreaseUi(view: View?, action: () -> Unit = {}) {
+//        if (view is TextView) {
+//            val metrics = context.resources.displayMetrics
+//            val textsize: Float = view.textSize / metrics.density
+//            val size = increaseTextSize(textsize)
+//            view.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+//        }
+//
+//        if (view is ViewGroup) {
+//            for (i in 0 until view.childCount) {
+//                val innerView = view.getChildAt(i)
+//                updateIncreaseUi(innerView)
+//            }
+//        }
+//    }
+//
+//    fun updateDecreaseUi(view: View?, action: () -> Unit = {}) {
+//        if (view is TextView) {
+//            val metrics = context.resources.displayMetrics
+//            val textsize: Float = view.textSize / metrics.density
+//            val size = decreaseTextSize(textsize)
+//            view.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+//        }
+//
+//        if (view is ViewGroup) {
+//            for (i in 0 until view.childCount) {
+//                val innerView = view.getChildAt(i)
+//                updateDecreaseUi(innerView)
+//            }
+//        }
+//    }
 
 }

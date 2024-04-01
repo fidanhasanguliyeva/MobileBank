@@ -107,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/dashboard_product_info_bg"
             android:gravity="center"
             android:orientation="horizontal"
@@ -120,7 +121,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/ic_dashboard_mastercard_logo" />
+                android:src="@drawable/ic_dashboard_mastercard_logo" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/card_number"
@@ -145,6 +146,7 @@
             android:paddingHorizontal="4dp"
             android:text="01/21"
             android:textSize="16dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/card_number_layout"
             app:layout_constraintTop_toBottomOf="@+id/amount" />
@@ -164,13 +166,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextCard"
         style="@style/TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Card Number"
-        android:inputType="number"
-        android:digits="0123456789"
+        android:inputType="phone"
+        android:digits="0123456789 "
         android:layout_marginHorizontal="16dp"
         app:endIconDrawable="@drawable/volume_max"
         app:endIconMode="custom"
@@ -185,6 +187,41 @@
             android:layout_height="64dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtAmount"
+        style="@style/BoldBlack_18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount:"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCard"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextAmount"
+        style="@style/TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Amount"
+        android:layout_marginHorizontal="16dp"
+        app:endIconDrawable="@drawable/volume_max"
+        app:endIconMode="custom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAmount"
+        app:startIconDrawable="@drawable/bank_note_02">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:inputType="numberDecimal"
+            android:layout_height="64dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnContinue"

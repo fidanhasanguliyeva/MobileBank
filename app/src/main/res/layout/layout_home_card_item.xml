@@ -26,10 +26,10 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_constraintDimensionRatio="@string/dashboard_card_ratio">
 
-            <com.google.android.material.textview.MaterialTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name"
                 style="@style/regularBlack_14"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -41,7 +41,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Salary card" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/amount"
                 style="@style/BoldBlack_18"
                 android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
             <LinearLayout
                 android:id="@+id/card_number_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/dashboard_product_info_bg"
                 android:gravity="center"
@@ -120,7 +120,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:scaleType="centerCrop"
-                    tools:src="@drawable/ic_dashboard_mastercard_logo" />
+                    android:src="@drawable/ic_dashboard_mastercard_logo" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/card_number"
@@ -137,7 +137,7 @@
                 android:id="@+id/expire_date"
                 style="@style/regularBlack_14"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
@@ -152,7 +152,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/googlePayBadge"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/dashboard_product_info_bg"

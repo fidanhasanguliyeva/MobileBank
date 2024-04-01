@@ -19,6 +19,7 @@ data class HomeUiState(
                 cardNumber = it?.maskedCardNumber ?: "",
                 amount = (it?.availableBalance ?: "") + " " + it?.currency,
                 backgroundImage = it?.mediumImageUrl ?: "",
+                expiryDate = it?.expiryDate ?: "",
                 name = it?.alias ?: ""
             )
         } ?: listOf()
@@ -31,7 +32,9 @@ data class HomeUiState(
                 amount = it?.amount ?: 0.0,
                 subtitle = it?.date ?: "",
                 endLabel = (it?.amount ?: 0.0).toString(),
-                icon = if ((it?.amount ?: 0.0) > 0) R.drawable.ic_transaction_income else R.drawable.ic_transaction_spending
+                icon = if ((it?.amount
+                        ?: 0.0) > 0
+                ) R.drawable.ic_transaction_income else R.drawable.ic_transaction_spending
             )
         } ?: listOf()
     }

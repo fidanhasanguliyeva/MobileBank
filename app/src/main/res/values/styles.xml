@@ -21,6 +21,12 @@
         <!--        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>-->
     </style>
 
+    <style name="MediumBlack_22">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/arial_medium</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
     <style name="BoldBlack_20">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/arial_bold</item>
@@ -55,6 +61,12 @@
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/arial_regular</item>
         <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="regularUtility500_16">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/arial_regular</item>
+        <item name="android:textColor">@color/colorUtility500</item>
     </style>
 
     <style name="boldWhite_16">
