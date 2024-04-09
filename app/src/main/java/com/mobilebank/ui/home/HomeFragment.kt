@@ -1,13 +1,13 @@
 package com.mobilebank.ui.home
 
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
@@ -21,6 +21,8 @@ import com.mobilebank.utils.collectLatestWithLifecycle
 import com.mobilebank.utils.decreaseTextSize
 import com.mobilebank.utils.increaseTextSize
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
+import kotlin.math.floor
 
 
 @AndroidEntryPoint
@@ -30,7 +32,7 @@ class HomeFragment :
     override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 
-    var textAppearance: Int = R.style.InputTextLabel16
+    var textToSpeech: TextToSpeech? = null
 
     val adapter = TransactionsAdapter()
 
@@ -38,13 +40,25 @@ class HomeFragment :
         super.onViewCreated(view, savedInstanceState)
         viewModel.getCards()
         viewModel.getTransactions()
+
+        textToSpeech = TextToSpeech(context) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                Log.d("TextToSpeech", "Initialization Success")
+            } else {
+                Log.d("TextToSpeech", "Initialization Failed")
+            }
+        }
+        textToSpeech?.language = Locale.US
+
         with(binding) {
             homeHeader.magnifier.zoomInBtn.setOnClickListener {
                 updateIncreaseUi(binding.clLayout)
+                updateIncreaseUi(binding.txtTransaction)
             }
 
             homeHeader.magnifier.zoomOutBtn.setOnClickListener {
                 updateDecreaseUi(binding.root)
+                updateDecreaseUi(binding.txtTransaction)
             }
             rvTransactions.layoutManager = LinearLayoutManager(context)
             rvTransactions.adapter = adapter
@@ -79,14 +93,6 @@ class HomeFragment :
             }
             homeHeader.magnifier.btnHelp.isVisible = false
             vpOnboarding.setPadding(viewPagerPadding.toInt(), 0, viewPagerPadding.toInt(), 0)
-            topUp.titleText = "Top up"
-            topUp.icon = AppCompatResources.getDrawable(requireContext(), R.drawable.plus)
-            pay.titleText = "Pay"
-            pay.icon = AppCompatResources.getDrawable(requireContext(), R.drawable.bank_note_02)
-            transfer.titleText = "Transfer"
-            transfer.icon =
-                AppCompatResources.getDrawable(requireContext(), R.drawable.switch_vertical_02)
-
         }
 
         viewModel.uiState.collectLatestWithLifecycle(viewLifecycleOwner) {
@@ -95,7 +101,15 @@ class HomeFragment :
                 vpOnboarding.adapter = CardsViewPagerAdapter(it.listOfCards, requireContext())
                 diViewpager.attachTo(vpOnboarding)
                 adapter.addTransactions(it.listOfTransactions)
-                transfer.root.setOnClickListener { _ ->
+                volume.setOnClickListener {
+                    textToSpeech?.speak(
+                        "Action Button for navigating to transfer screen",
+                        TextToSpeech.QUEUE_FLUSH,
+                        null,
+                        ""
+                    )
+                }
+                transferBtn.setOnClickListener { _ ->
                     findNavController().navigate(
                         HomeFragmentDirections.actionHomeFragmentToTransferFragment(
                             it.listOfCards[adapter.currentPage]
@@ -112,7 +126,7 @@ class HomeFragment :
         if (view is TextView) {
             val metrics = requireContext().resources.displayMetrics
             val textsize: Float = view.textSize / metrics.density
-            val size = increaseTextSize(textsize)
+            val size = increaseTextSize(floor(textsize.toDouble()).toFloat())
             view.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
         }
 
@@ -128,7 +142,7 @@ class HomeFragment :
         if (view is TextView) {
             val metrics = requireContext().resources.displayMetrics
             val textsize: Float = view.textSize / metrics.density
-            val size = decreaseTextSize(textsize)
+            val size = decreaseTextSize(floor(textsize.toDouble()).toFloat())
             view.setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
         }
 

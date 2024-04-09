@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/card_image_logo"
                 app:layout_constraintHorizontal_bias="0.079"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
                 style="@style/BoldBlack_18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="@+id/name"
                 app:layout_constraintTop_toBottomOf="@+id/name"
                 tools:text="32,200.15 ₼" />

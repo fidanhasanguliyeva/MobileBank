@@ -49,55 +49,61 @@
             app:selectedDotColor="@color/colorPrimaryBase" />
 
         <LinearLayout
-            android:id="@+id/llActionButtons"
-            android:layout_width="0dp"
+            android:id="@+id/transferBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:gravity="center_horizontal"
+            android:background="@drawable/bg_round_corner_primary"
+            android:backgroundTint="@color/colorWhite"
+            android:gravity="center"
             android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/diViewpager">
 
-            <include
-                android:id="@+id/topUp"
-                layout="@layout/layout_home_card_actions"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_round_corner_primary"
+                android:backgroundTint="@color/colorPrimaryLight"
+                android:padding="8dp"
+                android:src="@drawable/switch_vertical_02"
+                android:tint="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/regularBlack_16"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Space
-                android:layout_width="16dp"
-                android:layout_height="match_parent" />
-
-            <include
-                android:id="@+id/pay"
-                layout="@layout/layout_home_card_actions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Space
-                android:layout_width="16dp"
-                android:layout_height="match_parent" />
-
-            <include
-                android:id="@+id/transfer"
-                layout="@layout/layout_home_card_actions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Transfer" />
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/volume"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="6dp"
+            android:padding="4dp"
+            android:src="@drawable/volume_max"
+            android:tint="@color/colorPrimaryLight"
+            app:layout_constraintBottom_toBottomOf="@+id/transferBtn"
+            app:layout_constraintStart_toEndOf="@+id/transferBtn"
+            app:layout_constraintTop_toTopOf="@+id/transferBtn" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtTransaction"
             style="@style/BoldBlack_18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Transactions"
-            android:layout_marginTop="12dp"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:text="Transactions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/llActionButtons" />
+            app:layout_constraintTop_toBottomOf="@+id/transferBtn" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTransactions"

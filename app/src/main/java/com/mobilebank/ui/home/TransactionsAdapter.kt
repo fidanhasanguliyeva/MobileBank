@@ -74,7 +74,7 @@ class TransactionsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 holder.transactionIcon.setImageResource(transaction.icon)
 
                 if (amount > 0) {
-                    holder.transactionAmount.text = "$PLUS ${transaction.endLabel}"
+                    holder.transactionAmount.text = "$PLUS${transaction.endLabel}"
                     holder.transactionAmount.setTextColor(
                         ContextCompat.getColor(
                             context,
@@ -107,33 +107,7 @@ class TransactionsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-//    private fun parseDate(context: Context, transaction: TransactionsUiModel): String? {
-//        val transactionDate = Calendar.getInstance()
-//        val defaultFormat =
-//            if (transaction.subtitle?.contains(PLUS) == true) TRANSACTION_FILTER_DATE_FORMAT else TRANSACTION_FILTER_DATE_FORMAT2
-//
-////        uiActionHandler.getDateFromString(transaction.date, defaultFormat)?.let {
-////            transactionDate.time = it
-////        }
-//
-//        return when {
-//            checkDateEqual(
-//                transactionDate,
-//                OFFSET_EQUAL
-//            ) -> context.resources.getString(R.string.today)
-//
-//            checkDateEqual(
-//                transactionDate,
-//                OFFSET_LESS
-//            ) -> context.resources.getString(R.string.yesterday)
-//
-//            else -> uiActionHandler.formatDate(
-//                transaction.date,
-//                defaultFormat,
-//                TRANSACTION_FILTER_DATE_FORMAT2
-//            )
-//        }
-//    }
+
 
     private fun checkDateEqual(transactionDate: Calendar, offset: Int): Boolean {
         val now = Calendar.getInstance()

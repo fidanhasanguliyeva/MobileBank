@@ -32,9 +32,8 @@ data class HomeUiState(
                 amount = it?.amount ?: 0.0,
                 subtitle = it?.date ?: "",
                 endLabel = (it?.amount ?: 0.0).toString(),
-                icon = if ((it?.amount
-                        ?: 0.0) > 0
-                ) R.drawable.ic_transaction_income else R.drawable.ic_transaction_spending
+                icon = if ((it?.amount ?: 0.0) > 0
+                ) R.drawable.ic_transaction_spending else R.drawable.ic_transaction_income
             )
         } ?: listOf()
     }

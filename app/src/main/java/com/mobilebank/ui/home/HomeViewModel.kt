@@ -1,5 +1,6 @@
 package com.mobilebank.ui.home
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.mobile.onsual.domain.model.ResultWrapper
 import com.mobilebank.domain.repository.CardRepository
@@ -22,6 +23,7 @@ class HomeViewModel @Inject constructor(val cardRepository: CardRepository) :
             when (val response = cardRepository.getCards()) {
                 is ResultWrapper.Success -> {
                     val data = response.value.body()
+                    Log.i("fidan", "getCards: $data")
                     setState {
                         copy(
                             isLoading = false,

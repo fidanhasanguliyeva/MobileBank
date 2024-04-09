@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "210543691253",
+    "project_id": "mobile-bank-1d3a7",
+    "storage_bucket": "mobile-bank-1d3a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210543691253:android:6cd72196565598b5220cbc",
+        "android_client_info": {
+          "package_name": "com.mobilebank"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxCHRTt1vRxY4f107QCYPmmlI6mGvPuFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

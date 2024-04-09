@@ -5,6 +5,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -87,8 +88,8 @@ dependencies {
     implementation("commons-codec:commons-codec:1.11")
     implementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
     testImplementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
-
-
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation("com.google.firebase:firebase-analytics")
 
     implementation ("com.github.bumptech.glide:glide:4.13.2")
 
