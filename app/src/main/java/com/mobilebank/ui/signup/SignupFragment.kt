@@ -8,9 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.mobilebank.R
 import com.mobilebank.databinding.FragmentSignupBinding
 import com.mobilebank.ui.base.BaseFragment
+import com.mobilebank.utils.AnalyticsHelper
+import com.mobilebank.utils.MainSharedPreferences
 import com.mobilebank.utils.decreaseTextAppearance
 import com.mobilebank.utils.increaseTextAppearance
 import java.util.Locale
@@ -48,16 +51,41 @@ class SignupFragment :
                     textAppearance = triple.first
                     updateStyle(triple)
                 }
-                editTextPhone.setEndIconOnClickListener {
-                    textToSpeech?.speak("phone for user log in", TextToSpeech.QUEUE_FLUSH, null,"")
+                editTextName.setEndIconOnClickListener {
+                    textToSpeech?.speak(
+                        "name and surname of user",
+                        TextToSpeech.QUEUE_FLUSH,
+                        null,
+                        ""
+                    )
+                }
 
+                editTextPhone.setEndIconOnClickListener {
+                    textToSpeech?.speak("phone for user log in", TextToSpeech.QUEUE_FLUSH, null, "")
                 }
 
                 editTextPassword.setEndIconOnClickListener {
-                    textToSpeech?.speak("password for user login", TextToSpeech.QUEUE_FLUSH, null,"")
-
+                    textToSpeech?.speak(
+                        "password for user login",
+                        TextToSpeech.QUEUE_FLUSH,
+                        null,
+                        ""
+                    )
                 }
+
                 btnContinue.setOnClickListener {
+                    MainSharedPreferences(context, "MAIN").set(
+                        "name",
+                        editTextName.editText?.text.toString()
+                    )
+                    MainSharedPreferences(context, "MAIN").set(
+                        "isLoggedIn",
+                        true
+                    )
+                    AnalyticsHelper.logEvent(
+                        FirebaseAnalytics.Event.SIGN_UP,
+                        editTextName.editText?.text.toString() ?: ""
+                    )
                     findNavController().navigate(R.id.homeFragment)
                 }
             }

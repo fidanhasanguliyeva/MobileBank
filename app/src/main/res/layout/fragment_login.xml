@@ -35,8 +35,8 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="40dp"
         android:hint="Phone"
-        app:endIconMode="custom"
         app:endIconDrawable="@drawable/volume_max"
+        app:endIconMode="custom"
         app:hintTextAppearance="@style/InputTextLabel16"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
         app:startIconDrawable="@drawable/phone">
@@ -54,10 +54,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        app:endIconMode="custom"
-        app:endIconDrawable="@drawable/volume_max"
         android:layout_marginTop="16dp"
         android:hint="Password"
+        app:endIconDrawable="@drawable/volume_max"
+        app:endIconMode="custom"
         app:hintTextAppearance="@style/InputTextLabel16"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
         app:startIconDrawable="@drawable/lock_01">
@@ -67,6 +67,19 @@
             android:layout_height="64dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/regularBlack_16"
+        android:layout_width="0dp"
+        android:id="@+id/txtRegister"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
+        android:layout_marginTop="4dp"
+        android:text="Don't you have account? Register"
+        android:textColor="@color/colorPrimaryBase"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnContinue"

@@ -90,7 +90,8 @@ dependencies {
     testImplementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-core:21.1.1")
 
-    implementation ("com.github.bumptech.glide:glide:4.13.2")
+    implementation("com.github.bumptech.glide:glide:4.13.2")
 
 }

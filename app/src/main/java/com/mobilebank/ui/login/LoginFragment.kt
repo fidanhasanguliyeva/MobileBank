@@ -8,9 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.mobilebank.R
 import com.mobilebank.databinding.FragmentLoginBinding
 import com.mobilebank.ui.base.BaseFragment
+import com.mobilebank.utils.AnalyticsHelper
+import com.mobilebank.utils.MainSharedPreferences
+import com.mobilebank.utils.StaticData
 import com.mobilebank.utils.decreaseTextAppearance
 import com.mobilebank.utils.increaseTextAppearance
 import java.util.Locale
@@ -48,17 +52,26 @@ class LoginFragment :
                 textAppearance = triple.first
                 updateStyle(triple)
             }
+
             editTextPhone.setEndIconOnClickListener {
                 textToSpeech?.speak("phone for user log in", TextToSpeech.QUEUE_FLUSH, null, "")
-
             }
 
             editTextPassword.setEndIconOnClickListener {
                 textToSpeech?.speak("password for user login", TextToSpeech.QUEUE_FLUSH, null, "")
 
             }
-            btnContinue.setOnClickListener {
+            txtRegister.setOnClickListener {
                 findNavController().navigate(R.id.signupFragment)
+            }
+            btnContinue.setOnClickListener {
+                val name = setSharedPrefData()
+                MainSharedPreferences(context, "MAIN").set(
+                    "isLoggedIn",
+                    true
+                )
+                AnalyticsHelper.logEvent(FirebaseAnalytics.Event.LOGIN, name ?: "")
+                findNavController().navigate(R.id.homeFragment)
             }
         }
     }
@@ -73,6 +86,13 @@ class LoginFragment :
             editTextPassword.setHintTextAppearance(triple.first)
             btnContinue.textSize = triple.third
         }
+    }
+
+    fun setSharedPrefData(): String? {
+        return MainSharedPreferences(context, "MAIN").get(
+            "name",
+            ""
+        )
     }
 
     override fun onDestroy() {

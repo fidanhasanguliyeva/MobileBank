@@ -16,6 +16,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.mobilebank.R
 import com.mobilebank.databinding.FragmentHomeBinding
 import com.mobilebank.ui.base.BaseFragment
+import com.mobilebank.utils.MainSharedPreferences
 import com.mobilebank.utils.asDp
 import com.mobilebank.utils.collectLatestWithLifecycle
 import com.mobilebank.utils.decreaseTextSize
@@ -68,7 +69,7 @@ class HomeFragment :
 
             var viewPagerPadding = 20 + pageMargin;
 
-            homeHeader.txtTitle.text = "Name Surname"
+            homeHeader.txtTitle.text = setSharedPrefData()
             homeHeader.txtSubtitle.text = "Have a good day"
             homeHeader.imgProfile.setImageResource(R.drawable.user)
             vpOnboarding.apply {
@@ -96,7 +97,6 @@ class HomeFragment :
         }
 
         viewModel.uiState.collectLatestWithLifecycle(viewLifecycleOwner) {
-            Log.i("fidan", "onViewCreated: ${it.listOfCards}")
             with(binding) {
                 vpOnboarding.adapter = CardsViewPagerAdapter(it.listOfCards, requireContext())
                 diViewpager.attachTo(vpOnboarding)
@@ -154,4 +154,10 @@ class HomeFragment :
         }
     }
 
+    fun setSharedPrefData(): String? {
+        return MainSharedPreferences(context, "MAIN").get(
+            "name",
+            ""
+        )
+    }
 }

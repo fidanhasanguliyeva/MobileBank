@@ -7,7 +7,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.mobilebank.databinding.ActivityMainBinding
+import com.mobilebank.ui.login.LoginFragmentDirections
+import com.mobilebank.utils.AnalyticsHelper
+import com.mobilebank.utils.MainSharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        AnalyticsHelper.initAnalytics(this)
         setUpNavigationController()
     }
 
@@ -32,10 +37,15 @@ class MainActivity : AppCompatActivity() {
         navGraph = navController.navInflater.inflate(R.navigation.main_navigation)
 
         navController.setGraph(navGraph, intent.extras)
-
+        if (MainSharedPreferences(this, "MAIN").get(
+                "isLoggedIn",
+                false
+            ) == true
+        ) {
+            navController.navigate(LoginFragmentDirections.actionGlobalHomeFragment())
+        }
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNav.isVisible =
-                (destination.id == R.id.homeFragment || destination.id == R.id.signupFragment)
+            binding.bottomNav.isVisible = destination.id == R.id.homeFragment
         }
     }
 
