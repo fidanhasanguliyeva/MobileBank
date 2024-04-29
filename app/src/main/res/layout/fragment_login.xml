@@ -44,6 +44,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextPhoneTXT"
             android:layout_width="match_parent"
+            android:inputType="phone"
             android:layout_height="64dp" />
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -78,6 +78,11 @@ class SignupFragment :
                         "name",
                         editTextName.editText?.text.toString()
                     )
+
+                    MainSharedPreferences(context, "MAIN").set(
+                        "phone",
+                        editTextPhone.editText?.text.toString()
+                    )
                     MainSharedPreferences(context, "MAIN").set(
                         "isLoggedIn",
                         true

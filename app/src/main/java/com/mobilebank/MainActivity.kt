@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.mobilebank.databinding.ActivityMainBinding
 import com.mobilebank.ui.login.LoginFragmentDirections
@@ -44,8 +45,9 @@ class MainActivity : AppCompatActivity() {
         ) {
             navController.navigate(LoginFragmentDirections.actionGlobalHomeFragment())
         }
+        binding.bottomNav.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNav.isVisible = destination.id == R.id.homeFragment
+            binding.bottomNav.isVisible = destination.id == R.id.homeFragment || destination.id == R.id.profileFragment|| destination.id == R.id.helpFragment
         }
     }
 

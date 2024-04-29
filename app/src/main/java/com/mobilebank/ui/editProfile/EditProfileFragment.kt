@@ -1,4 +1,4 @@
-package com.mobilebank.ui.login
+package com.mobilebank.ui.editProfile
 
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -7,27 +7,23 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.google.firebase.analytics.FirebaseAnalytics
+import androidx.core.view.isVisible
 import com.mobilebank.R
-import com.mobilebank.databinding.FragmentLoginBinding
-import com.mobilebank.ui.base.BaseFragment
-import com.mobilebank.utils.AnalyticsHelper
+import com.mobilebank.databinding.FragmentEditProfileBinding
+import com.mobilebank.ui.base.CoreFragment
 import com.mobilebank.utils.MainSharedPreferences
-import com.mobilebank.utils.StaticData
 import com.mobilebank.utils.decreaseTextAppearance
 import com.mobilebank.utils.increaseTextAppearance
+import com.mobilebank.utils.showSnackBar
 import java.util.Locale
 
 
-class LoginFragment :
-    BaseFragment<FragmentLoginBinding, LoginUiState, LoginViewModel>(LoginViewModel::class) {
+class EditProfileFragment : CoreFragment<FragmentEditProfileBinding>() {
+    override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentEditProfileBinding
+        get() = FragmentEditProfileBinding::inflate
 
     var textAppearance: Int = R.style.InputTextLabel16
     var textToSpeech: TextToSpeech? = null
-
-    override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentLoginBinding
-        get() = FragmentLoginBinding::inflate
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,6 +37,10 @@ class LoginFragment :
         textToSpeech?.language = Locale.US
 
         with(binding) {
+            toolbar.setNavigationOnClickListener {
+                activity?.onBackPressed()
+            }
+            magnifier.btnHelp.isVisible = false
             magnifier.zoomInBtn.setOnClickListener {
                 val triple = increaseTextAppearance(textAppearance)
                 textAppearance = triple.first
@@ -53,35 +53,62 @@ class LoginFragment :
                 updateStyle(triple)
             }
 
+            editTextName.editText?.setText(
+                MainSharedPreferences(context, "MAIN").get(
+                    "name",
+                    ""
+                )
+            )
+
+            editTextPhone.editText?.setText(
+                MainSharedPreferences(context, "MAIN").get(
+                    "phone",
+                    ""
+                )
+            )
+            editTextName.setEndIconOnClickListener {
+                textToSpeech?.speak(
+                    "name and surname of user",
+                    TextToSpeech.QUEUE_FLUSH,
+                    null,
+                    ""
+                )
+            }
+
             editTextPhone.setEndIconOnClickListener {
                 textToSpeech?.speak("phone for user log in", TextToSpeech.QUEUE_FLUSH, null, "")
             }
 
             editTextPassword.setEndIconOnClickListener {
-                textToSpeech?.speak("password for user login", TextToSpeech.QUEUE_FLUSH, null, "")
+                textToSpeech?.speak(
+                    "password for user login",
+                    TextToSpeech.QUEUE_FLUSH,
+                    null,
+                    ""
+                )
             }
 
-            txtRegister.setOnClickListener {
-                findNavController().navigate(R.id.signupFragment)
-            }
             btnContinue.setOnClickListener {
-                val name = setSharedPrefData()
                 MainSharedPreferences(context, "MAIN").set(
-                    "isLoggedIn",
-                    true
+                    "name",
+                    editTextName.editText?.text.toString()
                 )
+
                 MainSharedPreferences(context, "MAIN").set(
                     "phone",
                     editTextPhone.editText?.text.toString()
                 )
-                AnalyticsHelper.logEvent(FirebaseAnalytics.Event.LOGIN, name ?: "")
-                findNavController().navigate(R.id.homeFragment)
+                showSnackBar(context, "Profile information updated successfully")
             }
         }
     }
 
+
     fun updateStyle(triple: Triple<Int, Int, Float>) {
         with(binding) {
+            editTextName.layoutParams.height = triple.second
+            editTextName.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, triple.third)
+            editTextName.setHintTextAppearance(triple.first)
             editTextPhone.layoutParams.height = triple.second
             editTextPhone.editText?.setTextSize(TypedValue.COMPLEX_UNIT_SP, triple.third)
             editTextPhone.setHintTextAppearance(triple.first)
@@ -90,13 +117,6 @@ class LoginFragment :
             editTextPassword.setHintTextAppearance(triple.first)
             btnContinue.textSize = triple.third
         }
-    }
-
-    fun setSharedPrefData(): String? {
-        return MainSharedPreferences(context, "MAIN").get(
-            "name",
-            ""
-        )
     }
 
     override fun onDestroy() {

@@ -160,4 +160,9 @@ class HomeFragment :
             ""
         )
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        textToSpeech?.shutdown()
+    }
 }

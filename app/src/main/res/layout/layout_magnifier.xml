@@ -12,37 +12,37 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnHelp"
-            android:layout_width="wrap_content"
-            android:textSize="18sp"
-
             style="@style/PrimarySmallButton"
-            android:textColor="@color/colorWhite"
-            android:backgroundTint="@color/colorPrimaryLight"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:text="Help" />
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:text="Help"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/zoomOutBtn"
-            android:layout_width="wrap_content"
-            android:textSize="18sp"
             style="@style/PrimarySmallButton"
-
-            android:textColor="@color/colorWhite"
-            android:backgroundTint="@color/colorPrimaryLight"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginRight="8dp"
-            android:text="A-" />
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:text="A-"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/zoomInBtn"
-            android:layout_width="wrap_content"
-            android:textSize="18sp"
             style="@style/PrimarySmallButton"
-
-            android:textColor="@color/colorWhite"
-            android:backgroundTint="@color/colorPrimaryLight"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A+" />
+
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:text="A+"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
     </LinearLayout>
 </layout>

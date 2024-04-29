@@ -11,10 +11,13 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.mobilebank.databinding.FragmentTransferBinding
 import com.mobilebank.ui.base.BaseFragment
+import com.mobilebank.utils.AnalyticsHelper
 import com.mobilebank.utils.CardFormatWatcher
 import com.mobilebank.utils.DecimalDigitsInputFilter
+import com.mobilebank.utils.MainSharedPreferences
 import com.mobilebank.utils.NumberTextWatcher
 import com.mobilebank.utils.decreaseTextSize
 import com.mobilebank.utils.increaseTextSize
@@ -67,6 +70,7 @@ class TransferFragment :
             binding.editTextCard.editText?.filters = arrayOf(DecimalDigitsInputFilter(20, 0))
             binding.editTextAmount.editText?.filters = arrayOf(DecimalDigitsInputFilter(10, 2))
             btnContinue.setOnClickListener {
+                AnalyticsHelper.logEvent(FirebaseAnalytics.Event.PURCHASE, setSharedPrefData() ?: "")
                 findNavController().navigate(TransferFragmentDirections.actionTransferFragmentToResultFragment())
             }
 
@@ -120,4 +124,10 @@ class TransferFragment :
         }
     }
 
+    fun setSharedPrefData(): String? {
+        return MainSharedPreferences(context, "MAIN").get(
+            "name",
+            ""
+        )
+    }
 }
